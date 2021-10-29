@@ -73,8 +73,8 @@ router.get('/edit/:id', (req, res, next) => {
         //shows the edit view
         res.render('books/details', {
           title: 'Edit Book', 
-          books: bookToEdit
-        })
+          book: bookToEdit
+        });
       }
     });
 });

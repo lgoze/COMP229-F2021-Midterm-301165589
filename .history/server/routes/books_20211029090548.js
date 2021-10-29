@@ -50,7 +50,7 @@ router.post('/add', (req, res, next) => {
       if(err) {
         console.log(err);
         res.end(err);
-      } else {
+      }else{
         //refresh the book list
         res.redirect('/books');
       }
@@ -73,8 +73,8 @@ router.get('/edit/:id', (req, res, next) => {
         //shows the edit view
         res.render('books/details', {
           title: 'Edit Book', 
-          books: bookToEdit
-        })
+          book: bookToEdit
+        });
       }
     });
 });

@@ -74,7 +74,7 @@ router.get('/edit/:id', (req, res, next) => {
         res.render('books/details', {
           title: 'Edit Book', 
           books: bookToEdit
-        })
+        });
       }
     });
 });

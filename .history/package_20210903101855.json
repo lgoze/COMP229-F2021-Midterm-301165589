@@ -1,6 +1,6 @@
 {
-  "name": "comp229-f2021-midterm-301165589",
-  "version": "0.0.2",
+  "name": "comp229-f2020-midterm",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node server.js"
@@ -54,5 +54,8 @@
   ],
   "author": "Your Name Goes Here",
   "license": "ISC",
+  "bugs": {
+    "url": ""
+  },
   "homepage": ""
 }

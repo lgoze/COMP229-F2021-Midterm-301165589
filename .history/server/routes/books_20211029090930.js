@@ -58,7 +58,7 @@ router.post('/add', (req, res, next) => {
 });
 
 // GET the Book Details page in order to edit an existing Book
-router.get('/edit/:id', (req, res, next) => {
+router.get('/:id', (req, res, next) => {
 
     /*****************
      * ADD CODE HERE *
@@ -73,8 +73,8 @@ router.get('/edit/:id', (req, res, next) => {
         //shows the edit view
         res.render('books/details', {
           title: 'Edit Book', 
-          books: bookToEdit
-        })
+          book: bookToEdit
+        });
       }
     });
 });

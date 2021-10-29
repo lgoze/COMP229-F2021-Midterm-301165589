@@ -29,7 +29,12 @@ router.get('/add', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
-    res.render('books/index', {title: 'Add new book', books: '' })
+    res.render('books/add', {
+      title: 'Add new book'
+      // book: ''
+    });
+
+
 });
 
 // POST process the Book Details page and create a new Book - CREATE
@@ -46,11 +51,11 @@ router.post('/add', (req, res, next) => {
       "Genre": req.body.Genre
     });
 
-    book.create(newBook, (err, book) => {
+    book.create(newBook, (err, book) =>{
       if(err) {
         console.log(err);
         res.end(err);
-      } else {
+      }else{
         //refresh the book list
         res.redirect('/books');
       }
@@ -71,9 +76,9 @@ router.get('/edit/:id', (req, res, next) => {
         res.end(err);
       } else {
         //shows the edit view
-        res.render('books/details', {
+        res.render('/books/details', {
           title: 'Edit Book', 
-          books: bookToEdit
+          book: bookToEdit
         })
       }
     });
@@ -105,7 +110,7 @@ router.post('/edit/:id', (req, res, next) => {
          res.redirect('/books');
        }
 
-     });
+     })
 
 });
 
