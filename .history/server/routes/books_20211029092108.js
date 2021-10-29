@@ -14,8 +14,8 @@ router.get('/', (req, res, next) => {
       return console.error(err);
     }
     else {
-      res.render('books/index', {
-        title: 'books',
+      res.render('books/details', {
+        title: 'Books',
         books: books
       });
     }
@@ -29,17 +29,7 @@ router.get('/add', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
-    res.render('books/details', {title: 'Add new book'
-    , books: '' 
-    // working
-    // {
-    //   Title: '',
-    //   Description:'',
-    //   Price: null,
-    //   Author: '',
-    //   Genre: ''
-    // }
-  })
+    res.render('books/details', {title: 'Add new book', books: '' })
 });
 
 // POST process the Book Details page and create a new Book - CREATE
@@ -48,7 +38,7 @@ router.post('/add', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
-    let newBook = new book({
+    let newBook = book({
       "Title": req.body.Title,
       "Description": req.body.Description,
       "Price": req.body.Price,
@@ -57,7 +47,6 @@ router.post('/add', (req, res, next) => {
     });
 
     book.create(newBook, (err, book) => {
-    // book.create(newBook, (err, book) => {
       if(err) {
         console.log(err);
         res.end(err);
@@ -69,8 +58,7 @@ router.post('/add', (req, res, next) => {
 });
 
 // GET the Book Details page in order to edit an existing Book
-//router.get('/edit/:id', (req, res, next) => {
-  router.get('/:id', (req, res, next) => { //this is the working code
+router.get('/edit/:id', (req, res, next) => {
 
     /*****************
      * ADD CODE HERE *
@@ -92,8 +80,7 @@ router.post('/add', (req, res, next) => {
 });
 
 // POST - process the information passed from the details form and update the document
-// router.post('/edit/:id', (req, res, next) => {
-  router.post('/:id', (req, res, next) => { //WORKING
+router.post('/edit/:id', (req, res, next) => {
 
     /*****************
      * ADD CODE HERE *
@@ -130,7 +117,7 @@ router.get('/delete/:id', (req, res, next) => {
      *****************/
     let id = req.params.id;
 
-    book.remove({ _id: id }, (err) => {
+    book.remove({_id: id}, (err) => {
       if(err) {
         console.log(err);
         res.end(err);

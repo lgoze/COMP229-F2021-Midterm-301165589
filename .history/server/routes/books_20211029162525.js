@@ -48,7 +48,7 @@ router.post('/add', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
-    let newBook = new book({
+    let newBook = book({
       "Title": req.body.Title,
       "Description": req.body.Description,
       "Price": req.body.Price,
@@ -57,7 +57,6 @@ router.post('/add', (req, res, next) => {
     });
 
     book.create(newBook, (err, book) => {
-    // book.create(newBook, (err, book) => {
       if(err) {
         console.log(err);
         res.end(err);
@@ -130,7 +129,7 @@ router.get('/delete/:id', (req, res, next) => {
      *****************/
     let id = req.params.id;
 
-    book.remove({ _id: id }, (err) => {
+    book.remove({_id: id}, (err) => {
       if(err) {
         console.log(err);
         res.end(err);

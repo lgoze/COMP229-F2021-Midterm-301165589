@@ -5,7 +5,7 @@ let mongoose = require('mongoose');
 
 // define the book model
 //let book = require('../models/books');
-let Book = require('../models/books');
+let book = require('../models/books');
 
 /* GET home page. wildcard */
 router.get('/', (req, res, next) => {
