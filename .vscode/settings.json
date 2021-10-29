@@ -1,3 +1,18 @@
 {
-    "vsicons.presets.angular": false
+    "vsicons.presets.angular": false,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "server\\views\\books/add.ejs": false,
+        "**/add.ejs": false,
+        "server\\views\\books/*.ejs": false,
+        "server\\views\\books/*.*": false,
+        "add.ejs": false,
+        "**/*.ejs": false
+    },
+    "explorerExclude.backup": null
 }

@@ -50,11 +50,10 @@ router.post('/add', (req, res, next) => {
      * ADD CODE HERE *
      *****************/
     let newBook = book({
-      "Title": req.body.Title,
-      "Description":req.body.Description,
-      "Price": req.body.Price,
-      "Author": req.body.Author,
-      "Genre": req.body.Genre
+      "title": req.body.Title,
+      "price": req.body.Price,
+      "author": req.body.Author,
+      "genre": req.body.Genre
     });
 
     book.create(newBook, (err, book) =>{
@@ -100,11 +99,10 @@ router.post('/edit/:id', (req, res, next) => {
      
      let updatedBook = book({
        "_id": id,
-      "Title": req.body.Title,
-      "Description":req.body.Description,
-      "Price": req.body.Price,
-      "Author": req.body.Author,
-      "Genre": req.body.Genre
+      "tile": req.body.Title,
+      "price": req.body.Price,
+      "author": req.body.Author,
+      "genre": req.body.Genre
      });
 
      Book.updateOne({_id: id}, updatedBook, (err) => {

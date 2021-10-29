@@ -9,14 +9,15 @@ let book = require('../models/books');
 /* GET books List page. READ */
 router.get('/', (req, res, next) => {
   // find all books in the books collection
-  book.find( (err, books) => {
+  book.find( (err, books229) => {
     if (err) {
       return console.error(err);
     }
     else {
-      res.render('books/index', {
-        title: 'Books',
-        books: books
+      // res.render('books/index', {
+      //   title: 'Books',
+      //   books: books
+      console.log(books229)
       });
     }
   });
@@ -51,7 +52,6 @@ router.post('/add', (req, res, next) => {
      *****************/
     let newBook = book({
       "Title": req.body.Title,
-      "Description":req.body.Description,
       "Price": req.body.Price,
       "Author": req.body.Author,
       "Genre": req.body.Genre
@@ -101,7 +101,6 @@ router.post('/edit/:id', (req, res, next) => {
      let updatedBook = book({
        "_id": id,
       "Title": req.body.Title,
-      "Description":req.body.Description,
       "Price": req.body.Price,
       "Author": req.body.Author,
       "Genre": req.body.Genre

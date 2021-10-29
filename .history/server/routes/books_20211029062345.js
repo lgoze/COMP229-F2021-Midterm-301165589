@@ -14,9 +14,10 @@ router.get('/', (req, res, next) => {
       return console.error(err);
     }
     else {
-      res.render('books/index', {
-        title: 'Books',
-        books: books
+      // res.render('books/index', {
+      //   title: 'Books',
+      //   books: books
+      console.log(books229)
       });
     }
   });
@@ -51,7 +52,6 @@ router.post('/add', (req, res, next) => {
      *****************/
     let newBook = book({
       "Title": req.body.Title,
-      "Description":req.body.Description,
       "Price": req.body.Price,
       "Author": req.body.Author,
       "Genre": req.body.Genre
@@ -101,7 +101,6 @@ router.post('/edit/:id', (req, res, next) => {
      let updatedBook = book({
        "_id": id,
       "Title": req.body.Title,
-      "Description":req.body.Description,
       "Price": req.body.Price,
       "Author": req.body.Author,
       "Genre": req.body.Genre
