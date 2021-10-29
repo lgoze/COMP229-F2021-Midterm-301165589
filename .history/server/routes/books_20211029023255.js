@@ -113,17 +113,6 @@ router.get('/delete/:id', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
-    let id = req.params.id;
-
-    Book.remove({_id: id}, (err) => {
-      if(err) {
-        console.log(err);
-        res.end(err);
-      } else {
-        //refreshes book list
-        res.redirect('/books');
-      }
-    });
 });
 
 

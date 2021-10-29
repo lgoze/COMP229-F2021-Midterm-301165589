@@ -29,12 +29,6 @@ router.get('/add', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
-    res.render('books/details', {
-      title: 'Books',
-      // books: books
-
-    });
-
 
 });
 
@@ -44,21 +38,7 @@ router.post('/add', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
-    let newBook = Book({
-      "tile": req.body.title,
-      "price": req.body.price,
-      "author": req.body.author,
-      "genre": req.body.genre,
-    });
 
-    Book.create(newBook, (err, Book) =>{
-      if(err) {
-        console.log(err);
-        res.end(err);
-      }else{
-        res.redirect('/books');
-      }
-    })
 });
 
 // GET the Book Details page in order to edit an existing Book
@@ -67,16 +47,6 @@ router.get('/:id', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
-    let id = req.params.id;
-    book.find(id, (err, bookToEdit) => {
-      if(err) {
-        console.log(err);
-        res.end(err);
-      } else {
-        //shows the edit view
-        res.render('book/edit', {title: 'Edit Book', book: bookToEdit})
-      }
-    });
 });
 
 // POST - process the information passed from the details form and update the document
@@ -85,25 +55,6 @@ router.post('/:id', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
-     let id = req.params.id;
-     let updatedBook = Book({
-       "_id": id,
-      "tile": req.body.title,
-      "price": req.body.price,
-      "author": req.body.author,
-      "genre": req.body.genre,
-     });
-
-     Book.updateOne({_id: id}, updatedBook, (err) => {
-       if(err) {
-         console.log(err);
-         res.end(err);
-       } else {
-         //refreshes book list
-         res.redirect('/books');
-       }
-
-     })
 
 });
 
@@ -113,17 +64,6 @@ router.get('/delete/:id', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
-    let id = req.params.id;
-
-    Book.remove({_id: id}, (err) => {
-      if(err) {
-        console.log(err);
-        res.end(err);
-      } else {
-        //refreshes book list
-        res.redirect('/books');
-      }
-    });
 });
 
 
